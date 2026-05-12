@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <p>
-        Tiles Gallery
+        Tiles Gallery Home Page
       </p>
     </div>
   );
