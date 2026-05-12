@@ -8,7 +8,7 @@ export default function Home() {
     <div className="space-y-4">
       <ReactMarquee />
       <Banner />
-      {/* <FeaturedTiles /> */}
+      <FeaturedTiles />
     </div>
   );
 }
