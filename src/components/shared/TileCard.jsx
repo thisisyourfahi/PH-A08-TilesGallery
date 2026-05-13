@@ -17,8 +17,8 @@ const TileCard = ({ tile }) => {
                 />
                 <Chip size='sm' className='absolute right-2 top-2'>{tile.category}</Chip>
             </div>
-            <div className='space-y-1'>
-                <h3 className='text-2xl font-bold'>{tile.title}</h3>
+            <div className='space-y-1 flex-1'>
+                <h3 className='text-xl font-bold'>{tile.title}</h3>
                 <p>Dimension: {tile.dimensions}</p>
             </div>
             <Link href={`/all-tiles/${tile.id}`}>

@@ -11,7 +11,7 @@ const FeaturedTiles = async () => {
     return (
         <div className='space-y-4'>
             <p className='text-3xl font-bold'>Featured Tiles</p>
-            <div className='grid md:grid-cols-2 lg: grid-cols-4 gap-8'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
                 {
                     tiles.map(tile => <TileCard key={tile.id} tile={tile}></TileCard>)
                 }
