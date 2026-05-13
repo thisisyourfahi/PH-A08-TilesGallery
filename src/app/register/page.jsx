@@ -30,10 +30,10 @@ const RegisterPage = () => {
     }
     return (
         <div className='animate__animated animate__bounceInUp'>
-            <Card className="border border-gray-200 mx-auto md:w-125 py-10 mt-5">
+            <Card className="border border-gray-200 mx-auto py-10 mt-5">
                 <h1 className="text-center text-2xl font-bold">Register</h1>
 
-                <Form onSubmit={onSubmit} className="flex w-96 mx-auto flex-col gap-4 pr-4">
+                <Form onSubmit={onSubmit} className="flex w-86 md:w-96 mx-auto flex-col gap-4">
                     <TextField isRequired name="name" type="text">
                         <Label>Name</Label>
                         <Input placeholder="Enter your name" />
