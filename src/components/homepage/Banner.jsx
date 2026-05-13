@@ -18,7 +18,7 @@ const Banner = () => {
                 <div className='absolute inset-0 bg-black/50'></div>
             </div>
             <div className='absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center pb-12 text-white'>
-                <p className='text-3xl font-bold mb-4'>Discover Your Perfect Aesthetic</p>
+                <p className='text-xl md:text-3xl font-bold mb-4'>Discover Your Perfect Aesthetic</p>
                 <Link href={'/all-tiles'}>
                     <Button size='sm'>Browse Now</Button>
                 </Link>

@@ -48,7 +48,7 @@ const LoginPage = () => {
     }
     return (
         <div className='animate__animated animate__bounceInUp'>
-            <Card onSubmit={onSubmit} className="border border-gray-200 mx-auto w-125 py-10 mt-5">
+            <Card onSubmit={onSubmit} className="border border-gray-200 mx-auto md:w-125 py-10 mt-5">
                 <h1 className="text-center text-2xl font-bold">Log In</h1>
 
                 <Form className="flex w-96 mx-auto flex-col gap-4">

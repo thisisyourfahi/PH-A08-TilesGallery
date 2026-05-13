@@ -20,7 +20,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='flex items-center justify-between px-8 py-2 border-b border-b-gray-300 mb-10'>
+        <div className='flex flex-col md:flex-row gap-2 md:gap-0 items-center justify-between px-8 py-2 border-b border-b-gray-300 mb-10'>
             {/* left */}
             <div>
                 {/* <Image src={'/public/logo.png'} width={30} height={30} alt='Tile Galler'></Image> */}
@@ -29,7 +29,7 @@ const Navbar = () => {
 
             {/* center */}
             <div>
-                <ul className='flex gap-4'>
+                <ul className='flex flex-row gap-4'>
                     <li>
                         <Link href={'/'}>Home</Link>
                     </li>
@@ -48,7 +48,7 @@ const Navbar = () => {
                     <Avatar>
                         <Avatar.Image className='object-cover' alt={user?.name} src={user?.image} />
                         <Avatar.Fallback className='text-xl'>{user?.name[0]}</Avatar.Fallback>
-                    </Avatar>                     
+                    </Avatar>
                     <Button onClick={logOut} variant='danger' size='sm'>Log Out</Button>
                 </div> :
                     <div className='flex gap-2'>
