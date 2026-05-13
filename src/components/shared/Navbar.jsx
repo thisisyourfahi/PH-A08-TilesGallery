@@ -14,9 +14,11 @@ const Navbar = () => {
     const user = data?.user;
 
     const logOut = async () => {
-        await authClient.signOut()
-        toast.success('You have successfully logged out.')
-        redirect('/')
+        const {data} = await authClient.signOut()
+        if (data) {
+            toast.success('You have successfully logged out.')
+            redirect('/')
+        }
     }
 
     return (
