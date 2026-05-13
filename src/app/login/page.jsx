@@ -1,13 +1,53 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import Link from 'next/link';
-import React from 'react';
-import { FaGoogle, FaGoogleDrive } from "react-icons/fa";
+import { redirect, useSearchParams } from 'next/navigation';
+import React, { useEffect, useRef } from 'react';
+import { FaGoogle } from "react-icons/fa";
 
 const LoginPage = () => {
+    // showing alert if redirected
+    const searchParams = useSearchParams();
+    const wasRedirected = searchParams.get('redirected');
+    const hasShown = useRef(false);
+
+    useEffect(() => {
+        if (wasRedirected && !hasShown.current) {
+            alert('You Need to log in to access that page');
+            hasShown.current = true;
+        }
+    }, [wasRedirected])
+
+    // login with email and pass
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        const {data, error} = await authClient.signIn.email({
+            email, password
+        })
+
+        if (data) {
+            alert('Log In Successfull');
+            redirect('/')
+        }
+        if (error) {
+            alert('Error: ' + error.message)
+        }
+    }
+
+    // login with google
+    const handleGoogleSignIn = async () => {
+        const {data, error} = await authClient.signIn.social({
+            provider: 'google'
+        })
+    }
     return (
         <div>
-            <Card className="border border-gray-200 mx-auto w-125 py-10 mt-5">
+            <Card onSubmit={onSubmit} className="border border-gray-200 mx-auto w-125 py-10 mt-5">
                 <h1 className="text-center text-2xl font-bold">Log In</h1>
 
                 <Form className="flex w-96 mx-auto flex-col gap-4">
@@ -64,9 +104,9 @@ const LoginPage = () => {
                     </div>
                     <div className="text-center space-y-4">
                         <p className="text-2xl font-bold">Or</p>
-                        <Button className="w-full" variant="tertiary">
+                        <Button onClick={handleGoogleSignIn} className="w-full" variant="tertiary">
                             <FaGoogle icon="devicon:google" />
-                            Sign in with Google
+                            Log In with Google
                         </Button>
                         <p className='text-center'>Don&apos;t have an account? <Link className='text-blue-700' href={'/register'}>Register</Link></p>
                     </div>

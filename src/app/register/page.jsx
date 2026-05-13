@@ -1,14 +1,37 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { redirect } from 'next/navigation';
 import React from 'react';
 
 const RegisterPage = () => {
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const image = e.target.image.value;
+        const password = e.target.password.value;
+
+        const {data, error} = await authClient.signUp.email({
+            name, email, image, password
+        })
+
+        if (data) {
+            alert('Registration successfull')
+            await authClient.signOut();
+            redirect('/login')
+        } 
+        if (error) {
+            alert('Error: ' + error.message)
+        }
+    }
     return (
         <div>
             <Card className="border border-gray-200 mx-auto w-125 py-10 mt-5">
                 <h1 className="text-center text-2xl font-bold">Register</h1>
 
-                <Form className="flex w-96 mx-auto flex-col gap-4">
+                <Form onSubmit={onSubmit} className="flex w-96 mx-auto flex-col gap-4">
                     <TextField isRequired name="name" type="text">
                         <Label>Name</Label>
                         <Input placeholder="Enter your name" />
