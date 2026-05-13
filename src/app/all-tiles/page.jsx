@@ -13,7 +13,7 @@ const AllTilesPage = async () => {
             </div>
 
             <div className="space-y-4">
-                <div className="flex justify-between">
+                <div className="flex flex-col justify-center items-center md:flex-row md:justify-between">
                     <h3 className='text-2xl md:text-3xl font-bold'>All Tiles</h3>
                     <SearchField name="search">
                         <SearchField.Group>
