@@ -18,7 +18,7 @@ const AllTilesPage = async () => {
                     <SearchField name="search">
                         <SearchField.Group>
                             <SearchField.SearchIcon />
-                            <SearchField.Input className="w-[280px]" placeholder="Search by tiles name..." />
+                            <SearchField.Input className="w-70" placeholder="Search by tiles name..." />
                             <SearchField.ClearButton />
                         </SearchField.Group>
                     </SearchField>

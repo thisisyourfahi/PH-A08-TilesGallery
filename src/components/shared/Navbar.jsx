@@ -44,7 +44,7 @@ const Navbar = () => {
             {
                 isPending ? <span className="loading loading-ring loading-lg"></span> : user ? <div className='flex items-center gap-2'>
                     <Avatar>
-                        <Avatar.Image alt={user?.name} src={user?.image} />
+                        <Avatar.Image className='object-cover' alt={user?.name} src={user?.image} />
                         <Avatar.Fallback className='text-xl'>{user?.name[0]}</Avatar.Fallback>
                     </Avatar>                     
                     <Button onClick={logOut} variant='danger' size='sm'>Log Out</Button>
