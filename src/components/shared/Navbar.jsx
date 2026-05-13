@@ -20,7 +20,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-2 md:gap-0 items-center justify-between px-8 py-2 border-b border-b-gray-300 mb-10'>
+        <div className='sticky top-0 z-50 bg-white flex flex-col md:flex-row gap-2 md:gap-0 items-center justify-between px-8 py-2 border-b border-b-gray-300 mb-10'>
             {/* left */}
             <div>
                 {/* <Image src={'/public/logo.png'} width={30} height={30} alt='Tile Galler'></Image> */}
