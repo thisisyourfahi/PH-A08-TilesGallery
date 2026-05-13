@@ -4,8 +4,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const TileDetailsCard = ({ tile }) => {
-    console.log('tile details card:', tile);
-
     return (
         <div>
             <Card className='md:w-1/2 mx-auto'>

@@ -9,9 +9,9 @@ const ProfilePage = () => {
     const user = data.data?.user;
     return (
         <div className="mt-10 space-y-8">
-            <p className='text-2xl font-bold text-center'>Welcome {user?.name}</p>
+            <p className='animate__animated animate__bounce text-2xl font-bold text-center'>Welcome {user?.name}</p>
 
-            <Card className="border border-gray-200 mx-auto w-125 py-10 mt-5">
+            <Card className="animate__bounceInUp animate__animated border border-gray-200 mx-auto w-125 py-10 mt-5">
                 <Avatar className='w-40 h-40 rounded-full mx-auto'>
                     <Avatar.Image className='object-cover' src={user?.image} alt={user?.name} referrerPolicy="no-referrer" />
                     <Avatar.Fallback className='text-7xl'>{user?.name[0]}</Avatar.Fallback>
