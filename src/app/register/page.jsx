@@ -1,29 +1,31 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
-        
+
         const name = e.target.name.value;
         const email = e.target.email.value;
         const image = e.target.image.value;
         const password = e.target.password.value;
 
-        const {data, error} = await authClient.signUp.email({
+        const { data, error } = await authClient.signUp.email({
             name, email, image, password
         })
 
         if (data) {
-            alert('Registration successfull')
+            toast.success('Registration successfull')
             await authClient.signOut();
             redirect('/login')
-        } 
+        }
         if (error) {
-            alert('Error: ' + error.message)
+            toast.error('Error: ' + error.message)
         }
     }
     return (
@@ -96,6 +98,7 @@ const RegisterPage = () => {
                             Reset
                         </Button>
                     </div>
+                    <p className='text-center'>Already have an account? <Link className='text-blue-700' href={'/login'}>Log In</Link></p>
                 </Form>
             </Card>
         </div>

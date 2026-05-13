@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { BiUser } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 export function UpdateProfile() {
     const onSubmit = async (e) => {
@@ -15,7 +16,7 @@ export function UpdateProfile() {
         })
 
         if (!error) {
-            alert('Profile Updated')
+            toast.success('Profile Updated')
         }
     }
     return (

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { redirect, useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef } from 'react';
 import { FaGoogle } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
     // showing alert if redirected
@@ -14,7 +15,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (wasRedirected && !hasShown.current) {
-            alert('You Need to log in to access that page');
+            toast.warning('You Need to log in to access that page');
             hasShown.current = true;
         }
     }, [wasRedirected])
@@ -31,11 +32,11 @@ const LoginPage = () => {
         })
 
         if (data) {
-            alert('Log In Successfull');
+            toast.success('Log In Successfull');
             redirect('/')
         }
         if (error) {
-            alert('Error: ' + error.message)
+            toast.error('Error: ' + error.message)
         }
     }
 
