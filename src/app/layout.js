@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${marcellus.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         <Navbar />
         <main className="min-h-screen container mx-auto">
           {children}
